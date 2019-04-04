@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 
 
@@ -68,6 +68,22 @@ def admin():
 @app.route('/privacy/')
 def privacy():
     return render_template('privacy.html')
+
+
+
+# Contact form AJAX call process route
+@app.route('/process', methods=['POST'])
+def process():
+    email = request.form['email']
+    name = request.form['name']
+    message = request.form['message']
+
+    if name and email:
+        if message:
+            return jsonify({'feedback' : "Message Sent! Thanks!"})
+
+    return jsonify({'error': 'Please fill the required fields!'})
+
 
 
 
