@@ -52,12 +52,12 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul id="nav">
-                                <li class="active"><a href="{{url_for('home')}}">Home</a></li>
-                                <li><a href="{{url_for('about')}}">About</a></li>
+                                <li id="home"><a href="{{url_for('home')}}">Home</a></li>
+                                <li id="about"><a href="{{url_for('about')}}">About</a></li>
                                 <!-- <li><a href="{{url_for('speaking')}}">Speaking</a></li>
                                 <li><a href="{{url_for('book')}}">Book</a></li> -->
-                                <li><a href="{{url_for('blog')}}">Blog</a></li>
-                                <li><a href="{{url_for('contact')}}">Contact</a></li>
+                                <li id="blog"><a href="{{url_for('blog')}}">Blog</a></li>
+                                <li id="contact"><a href="{{url_for('contact')}}">Contact</a></li>
                             </ul>
 
                             <!-- Get Tickets Button -->
@@ -219,6 +219,22 @@
     <script src="../static/js/confer.bundle.js"></script>
     <!-- Active -->
     <script src="../static/js/default-assets/active.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+            var pageURL = $(location).attr("href").split('/');
+            var link_active_id = pageURL[pageURL.length - 2];
+
+            if (pageURL.length > 4){
+              $("#" + link_active_id).addClass("active");
+            }else{
+              $("#home").addClass("active");
+            }
+            // alert($(location).attr("href").split('/').length)
+
+      });
+    </script>
 
 </body>
 
