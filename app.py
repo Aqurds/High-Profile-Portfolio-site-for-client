@@ -1,8 +1,46 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+import os
+import smtplib
+import imghdr
+from email.message import EmailMessage
 
 
 
 app = Flask(__name__)
+
+
+
+# Email sending function
+def send_email(message, user_email):
+    # EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
+    # EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
+    EMAIL_ADDRESS =  "leaddealing@gmail.com"
+    EMAIL_PASSWORD = "Allah@DoYa@@KoRuN@@@"
+
+    contacts = ['YourAddress@gmail.com', 'test@example.com']
+
+    msg = EmailMessage()
+    msg['Subject'] = 'Email from JacobsEdo.com'
+    msg['From'] = user_email
+    msg['To'] = 'omarf1320@gmail.com'
+
+    # msg.set_content(message)
+
+    msg.add_alternative("""\
+    <!DOCTYPE html>
+    <html>
+        <body>
+            <p style="color:SlateGray;">""" + message + """</p>
+            <p style="color:red;">Email from: """ + user_email + """
+        </body>
+    </html>
+    """, subtype='html')
+
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        smtp.send_message(msg)
+
 
 
 
@@ -80,6 +118,7 @@ def process():
 
     if name and email:
         if message:
+            send_email(message, email)
             return jsonify({'feedback' : "Message Sent! Thanks!"})
 
     return jsonify({'error': 'Please fill the required fields!'})
