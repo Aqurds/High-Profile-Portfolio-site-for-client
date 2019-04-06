@@ -80,9 +80,9 @@ def blog():
 
 
 # Single blog route
-@app.route('/single-blog/')
-def single_blog():
-    return render_template('single-blog.html')
+@app.route('/post/')
+def post():
+    return render_template('post.html')
 
 
 
@@ -124,6 +124,26 @@ def process():
     return jsonify({'error': 'Please fill the required fields!'})
 
 
+
+
+# Test route to test developement data
+@app.route('/test/', methods=['GET', 'POST'])
+def test():
+    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # target = os.path.join(APP_ROOT, 'static/img/blogimage')
+    # image_folder = url_for('static', filename='img/blogimage')
+    file_name = ''
+    path = app.root_path
+
+    if request.method == "POST":
+        file = request.files['image']
+        file_name = file.filename
+        picture_path = os.path.join(app.root_path, 'static/img/blogimage', file_name)
+        # file.save(os.path.join(image_folder, file_name))
+        file.save(picture_path)
+
+
+    return render_template('test.html', dir=path, file_name=file_name)
 
 
 
