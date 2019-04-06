@@ -3,6 +3,14 @@ import os
 import smtplib
 import imghdr
 from email.message import EmailMessage
+import pymongo
+import urllib
+
+
+# MongoDB Atlas connection
+mongo = pymongo.MongoClient('mongodb+srv://jacobs:' + urllib.parse.quote_plus('Y5oyE2EDxAQJdw53') + '@cluster0-xpfof.mongodb.net/test?retryWrites=true', maxPoolSize=50, connect=False)
+db = pymongo.database.Database(mongo, 'edoblog')
+
 
 
 
@@ -75,14 +83,25 @@ def book():
 # blog route
 @app.route('/blog/')
 def blog():
-    return render_template('blog.html')
+
+    # Fetching the database for all blog post
+    col = pymongo.collection.Collection(db, 'blog_post')
+    blog_posts = list(col.find())
+
+    return render_template('blog.html', blog_posts=blog_posts)
 
 
 
 # Single blog route
 @app.route('/post/')
 def post():
-    return render_template('post.html')
+    post_title_as_id = request.args.get('post_id')
+
+    # Fetching the database for all blog post
+    col = pymongo.collection.Collection(db, 'blog_post')
+    single_post = list(col.find({'title': post_title_as_id}))
+
+    return render_template('post.html', post_title_as_id=post_title_as_id, single_post=single_post)
 
 
 
