@@ -11,8 +11,8 @@
                         <h2 class="page-title">Blog Details</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item"><a href="blog.html">My Blog</a></li>
+                                <li class="breadcrumb-item"><a href="{{url_for('home')}}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{url_for('blog')}}">My Blog</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
                             </ol>
                         </nav>
@@ -52,56 +52,35 @@
                             <p style="margin-top:40px;"> {{ single_post[0]['body'] | safe }} </p>
                         </div>
 
-                        <!-- Pager Area -->
-                        <div class="pager-area d-flex align-items-center flex-wrap mb-80" style="margin-top:100px;">
-                            <!-- Prev Post -->
-                            <div class="pager-single-post d-flex align-items-center">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="../static/img/blogimage/imageSelf07-squared.jpg" alt=""></a>
-                                </div>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">Strategic Planning</a>
-                                    <span>Previous Post</span>
-                                </div>
-                            </div>
 
-                            <!-- Next Post -->
-                            <div class="pager-single-post d-flex align-items-center">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="../static/img/blogimage/imageSelf07-squared.jpg" alt=""></a>
-                                </div>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">Petroleum Refining</a>
-                                    <span>Next Post</span>
-                                </div>
-                            </div>
-                        </div>
 
 
                         {% if comments %}
                           <!-- Comment Area -->
-                          <div class="comment-area mb-80">
+                          <div class="comment-area mb-80" style="margin-top:100px;">
                               <!-- Comments Area -->
                               <div class="comment_area clearfix">
                                   <h4 class="mb-30">Comments</h4>
 
                                   <ol>
-                                      <!-- Single Comment Area -->
-                                      <li class="single_comment_area">
-                                          <!-- Comment Content -->
-                                          <div class="comment-content d-flex">
+                                      {% for comment in comments %}
+                                          <!-- Single Comment Area -->
+                                          <li class="single_comment_area">
+                                              <!-- Comment Content -->
+                                              <div class="comment-content d-flex">
 
-                                              <!-- Comment Meta -->
-                                              <div class="comment-meta">
-                                                  <div class="comment-meta-data">
-                                                      <a>Beverly Price</a>
-                                                      <!-- <span><i class="zmdi zmdi-calendar-check"></i> June 28, 2019 at 3:18 pm</span> -->
+                                                  <!-- Comment Meta -->
+                                                  <div class="comment-meta">
+                                                      <div class="comment-meta-data">
+                                                          <a>{{ comment["comment"]["name"] }}</a>
+                                                          <!-- <span><i class="zmdi zmdi-calendar-check"></i> June 28, 2019 at 3:18 pm</span> -->
+                                                      </div>
+                                                      <p>{{ comment["comment"]["comment"] }}</p>
+                                                      <!-- <a href="#" class="reply"><i class="zmdi zmdi-mail-reply"></i> Reply</a> -->
                                                   </div>
-                                                  <p>{{post_title_as_id}}Just practicing yoga for more than 3 months, I dropped from 64 kg to 58 kg. I have used many weight loss measures such as medication, diet, but the effects are slow and low.</p>
-                                                  <!-- <a href="#" class="reply"><i class="zmdi zmdi-mail-reply"></i> Reply</a> -->
                                               </div>
-                                          </div>
-                                      </li>
+                                          </li>
+                                      {% endfor %}
                                   </ol>
                               </div>
                           </div>
@@ -113,36 +92,267 @@
 
                             <!-- Leave A Reply -->
                             <div class="contact_form">
-                                <form action="#" method="post">
+                                <form id="comment_form" action="" method="post" id="main_contact_form">
                                     <div class="contact_input_area">
+                                        <div id="success_fail_info"></div>
                                         <div class="row">
                                             <!-- Form Group -->
                                             <div class="col-12 col-lg-6">
-                                                <div class="form-group">
-                                                    <input autocomplete="off" type="text" class="form-control mb-30" name="name" id="name" placeholder="Your Name" required>
+                                                <div>
+                                                    <input type="text" autocomplete="off" class="form-control mb-30" name="name" id="name" placeholder="Your Name *" required>
                                                 </div>
                                             </div>
 
                                             <!-- Form Group -->
                                             <div class="col-12 col-lg-6">
-                                                <div class="form-group">
-                                                    <input autocomplete="off" type="email" class="form-control mb-30" name="email" id="email" placeholder="E-mail" required>
+                                                <div>
+                                                    <input type="email" autocomplete="off" class="form-control mb-30" name="email" id="email" placeholder="E-mail *" required>
                                                 </div>
                                             </div>
 
                                             <!-- Form Group -->
                                             <div class="col-12">
-                                                <div class="form-group">
-                                                    <textarea name="message" class="form-control mb-30" id="message" cols="30" rows="6" placeholder="Message" required></textarea>
+                                                <div>
+                                                    <textarea name="comment" class="form-control mb-30" id="comment" cols="30" rows="6" placeholder="Your Comment *"></textarea>
                                                 </div>
+                                            </div>
+                                            <!-- Hidden Input For Title reference -->
+                                            <div class="col-12">
+                                              <div class="">
+                                                <input type="hidden" name="title" id="title" value="{{ single_post[0]['title'] }}">
+                                              </div>
                                             </div>
                                             <!-- Button -->
                                             <div class="col-12">
-                                                <button type="submit" class="btn confer-btn">Send Message <i class="zmdi zmdi-long-arrow-right"></i></button>
+                                                <button type="submit" class="btn confer-btn">Add Comment <i class="zmdi zmdi-long-arrow-right"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
+                                <div id="gif_loader" style="position:absolute; top:0px; left:0px; z-index:9999; width:100%; height:100%; background:rgba(17,19,67,.9);">
+                                  <div id="gif_wrapper" class="wrapper">
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                    <div>
+                                      <div class="bar"></div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div id="errorAlert" style="position:absolute; top:100px; left:50%; background:#df42b1; color:#ffffff; z-index:999999; padding:5px 10px; width:300px; text-align:center; margin-left:-150px;font-size:18px; font-weight:bold;">
+                                </div>
+                                <div id="successAlert" style="position:absolute; top:150px; left:50%; background:#151853; color:#ffffff; z-index:999999; padding:5px 10px; width:300px; text-align:center; margin-left:-150px;font-size:18px; font-weight:bold;">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -181,18 +391,23 @@
                         <div class="single-widget-area">
                             <h5 class="widget-title mb-30">More Posts</h5>
 
-                            <!-- Single Recent Post Area -->
-                            <div class="single-recent-post-area d-flex align-items-center">
-                                <!-- Thumb -->
-                                <div class="post-thumb">
-                                    <a href="{{ url_for('post', post_id="post title") }}"><img src="../static/img/bg-img/je11.jpg" alt=""></a>
-                                </div>
-                                <!-- Content -->
-                                <div class="post-content">
-                                    <a href="{{ url_for('post', post_id="post title") }}" class="post-title">Los Angeles Institute</a>
-                                    <!-- <a href="#" class="post-date"><i class="zmdi zmdi-time"></i> January 14, 2019</a> -->
-                                </div>
-                            </div>
+
+                            {% for x in range(0, 3) %}
+                              <!-- Single Recent Post Area -->
+                              <div class="single-recent-post-area d-flex align-items-center" style="margin-bottom:30px; ">
+                                  <!-- Thumb -->
+                                  <div class="post-thumb">
+                                      <a href="{{ url_for('post', post_id=all_post[x]['title']) }}"><img src="../static/img/blogimage/{{all_post[x]['image']}}" alt=""></a>
+                                  </div>
+                                  <!-- Content -->
+                                  <div class="post-content">
+                                      <a class="post-title" style="font-size:14px; font-style:normal;" href="{{ url_for('post', post_id=all_post[x]['title']) }}">{{ all_post[x]['title'] }}</a>
+                                  </div>
+                              </div>
+                            {% endfor %}
+
+
+                        </div>
 
 
 

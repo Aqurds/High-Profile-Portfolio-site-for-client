@@ -1,102 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base-layout.html'%}
+{%block content%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Title -->
-    <title>Confer - Conference Event HTML Template</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="./img/core-img/favicon.png">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-    <!-- /Preloader -->
-
-    <!-- Header Area Start -->
-    <header class="header-area">
-        <div class="classy-nav-container breakpoint-off">
-            <div class="container">
-                <!-- Classy Menu -->
-                <nav class="classy-navbar justify-content-between" id="conferNav">
-
-                    <!-- Logo -->
-                    <a class="nav-brand" href="./index.html"><img src="./img/core-img/logo.png" alt=""></a>
-
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Menu -->
-                    <div class="classy-menu">
-                        <!-- Menu Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul id="nav">
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="index.html">- Home</a></li>
-                                        <li><a href="about.html">- About Us</a></li>
-                                        <li><a href="speakers.html">- Speakears</a></li>
-                                        <li><a href="schedule.html">- Schedule</a></li>
-                                        <li><a href="tickets.html">- Tickets</a></li>
-                                        <li><a href="blog.html">- Blog</a></li>
-                                        <li><a href="single-blog.html">- Single Blog</a></li>
-                                        <li><a href="contact.html">- Contact</a></li>
-                                        <li><a href="#">- Dropdown</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="speakers.html">Speakears</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-
-                            <!-- Get Tickets Button -->
-                            <a href="#" class="btn confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Get Tickets <i class="zmdi zmdi-long-arrow-right"></i></a>
-                        </div>
-                        <!-- Nav End -->
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!-- Header Area End -->
 
     <!-- Breadcrumb Area Start -->
-    <section class="breadcrumb-area bg-img bg-gradient-overlay jarallax" style="background-image: url(img/bg-img/27.jpg);">
+    <section class="breadcrumb-area bg-img bg-gradient-overlay jarallax" style="background-image: url(../static/img/bg-img/jc2.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2 class="page-title">spekars</h2>
+                        <h2 class="page-title">Speking</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">spekars</li>
+                                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Speking</li>
                             </ol>
                         </nav>
                     </div>
@@ -106,347 +22,405 @@
     </section>
     <!-- Breadcrumb Area End -->
 
-    <!-- Our Speakings Area Start -->
-    <section class="our-speaker-area section-padding-100">
+    <!-- Speaking Top Area Start -->
+    <section class="call-to-action-area bg-img bg-gradient-overlay jarallax section-padding-100" style="background-image: url(../static/img/bg-img/Je11.jpg);">
         <div class="container">
             <div class="row">
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/4.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Albert Barnes</h5>
-                            <p>Founder</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/5.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Patricia Stanley</h5>
-                            <p>Product Lead</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/6.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Evelyn Stone</h5>
-                            <p>Photographer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/7.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Evelyn Stone</h5>
-                            <p>Photographer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/8.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Susan Hopkins</h5>
-                            <p>UX Manager</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/9.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Michael Fowler</h5>
-                            <p>Product Design</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/7.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Evelyn Stone</h5>
-                            <p>Photographer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/8.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Susan Hopkins</h5>
-                            <p>UX Manager</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Speaker Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumb -->
-                        <div class="speaker-single-thumb">
-                            <img src="img/bg-img/9.jpg" alt="">
-                        </div>
-                        <!-- Social Info -->
-                        <div class="social-info">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                            <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                            <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                        </div>
-                        <!-- Info -->
-                        <div class="speaker-info">
-                            <h5>Michael Fowler</h5>
-                            <p>Product Design</p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-12">
-                    <div class="more-speaker-btn text-center mt-20 wow fadeInUp" data-wow-delay="300ms">
-                        <a class="btn confer-btn" href="#">View All Speaker <i class="zmdi zmdi-long-arrow-right"></i></a>
+                    <div class="call-to-action-content text-center">
+
+                        <div class="call-to-action-heading" style="margin-bottom:60px;">
+                            <h2 style="font-size:24px;">Transform your Business, Organisation and Person through Jacobs</h2>
+                            <h2>Digital Transformation Evangelist</h2>
+                        </div>
+
+                        <div class="event-time col-12 col-lg-7" style="margin-bottom:50px; text-align:left;">
+                            <p><img style="width:300px; float:left; margin-right:30px; margin-bottom:20px; margin-top:20px;" src="../static/img/bg-img/edorexy2.jpg" alt=""> </p>
+                            <p style="margin-top:20px;">Digitisation has existed since the invention of computer systems with its current iteration, digitisation and digital transformation are both epoch-defining phenomenon for countries, organisations and people. Developments in digital technologies are unprecedented in their velocity, scale and impact, transforming products, services, operations and lifestyles.</p>
+                        </div>
+
+                        <div class="event-time col-12 col-lg-7" style="margin-bottom:50px; text-align:left;">
+                            <p><img style="width:300px; float:left; margin-right:30px; margin-bottom:20px; margin-top:20px;" src="../static/img/bg-img/dd7-original.jpeg" alt=""> </p>
+                            <p style="margin-top:20px;">The advent of the digital economy – marked by the emergence of “digital disruptors” as direct threats to established market leaders and prevailing economic understandings – poses a clear and present danger to legacy businesses: transform or die. The emerging digital economy has the potential to generate new scientific research and breakthroughs, fuelling job opportunities, economic growth, and improving how we live our lives.</p>
+
+                            <p>This is the fourth industrial revolution and it’s going to have a significant impact on the global economy as well. For me, the digital economy represents a renaissance of sorts, an opportunity to take a frontline leadership role in transforming businesses and becoming a standard bearer for driving corporate performance through digital transformation. Remember change is the only constant in the world.</p>
+                        </div>
+
+                        <div class="event-time col-12 col-lg-7" style="margin-bottom:50px; text-align:left;">
+                            <p><img style="width:300px; float:left; margin-right:30px; margin-bottom:20px; margin-top:20px;" src="../static/img/bg-img/Je28.jpg" alt=""> </p>
+                            <p style="margin-top:20px;">Jacobs is the go-to-expert on enterprise digital transformation having participated in numerous reform projects globally. He has nearly two decades of research knowledge and practical hands-on implementation experience, ranging from system architecture and artificial intelligence to creative business processes and operations, to building a culture of leadership in innovation. With deep insights, system expertise, a captivating personality, and a high level of exposure – having spoken globally, Jake will deliver excellent value at your next event.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Our Speakings Area End -->
+    <!-- Speaking Top Area End -->
 
-    <!-- Footer Area Start -->
-    <footer class="footer-area bg-img bg-overlay-2 section-padding-100-0">
-        <!-- Main Footer Area -->
-        <div class="main-footer-area">
-            <div class="container">
-                <div class="row">
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-60">
-                            <!-- Footer Logo -->
-                            <a href="#" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a>
-                            <p>To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain.</p>
+    <!-- Speaking Video Area Start -->
+    <section class="our-speaker-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <!-- Single Speaker Area -->
+                <div class="col-12">
+                    <h2 style="text-transform:uppercase; font-weight:700; font-size:45px; text-align:center; margin-bottom:100px;">Speaking</h2>
+                    <div class="single-speaker-area " data-wow-delay="300ms" style="padding: 50px; background: #ffffff; box-shadow: 0px 0px 10px 5px rgba(0,0,0,.1);">
+                      <iframe width="100%" height="315" src="https://www.youtube.com/embed/8Jjpt2IFAH4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Speaking Video Area End -->
 
-                            <!-- Social Info -->
-                            <div class="social-info">
-                                <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                                <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                                <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                                <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                            </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Contact Us Thumb -->
+        <div class="col-12 col-lg-6">
+            <div class="contact-us-thumb mb-100">
+                <img src="../static/img/blogimage/DSC_0138-edited-1.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- Message before contact Form -->
+        <div class="col-12 col-lg-6">
+            <div class="contact_from_area mb-100 clearfix" style="margin-bottom:50px;">
+                <!-- Contact Heading -->
+                <div class="contact-heading">
+                    <h4>Hire a digital transformation evangelist today..!!!</h4>
+
+                    <h5>Now that you know what I’ve done and what I could do for you, feel free to reach out and start a conversation.</h5>
+
+                    <h5>I always enjoy speaking with passionate business owners about their strategic needs.</h5><br>
+
+                    <p style="font-size:18px;">Speaking Appointment – Are you planning an event on emerging technologies, start-up disruptions, artificial intelligence and digital transformation?</p>
+
+                    <p style="font-size:18px;">Then look no further contact me TODAY for a speaking appointment. Send your schedule and requirements to me or just mail me directly.</p>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Contact Area Start -->
+    <section class="contact-our-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <!-- Heading -->
+                <div class="col-12">
+                    <div class="section-heading-2 text-center wow fadeInUp" data-wow-delay="300ms">
+                        <p>Have Question?</p>
+                        <h4>Contact us</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+                <div class="col-12 col-sm-3">
+                    <div class="contact-information mb-100">
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info wow fadeInUp" data-wow-delay="300ms">
+                            <p>Address:</p>
+                            <h6>Markowsygasse 6. Vienna, Austria</h6>
+                        </div>
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info wow fadeInUp" data-wow-delay="300ms">
+                            <p>Phone:</p>
+                            <h6>+43.1.515.64.142</h6>
+                        </div>
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info wow fadeInUp" data-wow-delay="300ms">
+                            <p>Email:</p>
+                            <h6>office@jacobsedo.com</h6>
+                        </div>
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info wow fadeInUp" data-wow-delay="300ms">
+                            <p>Website:</p>
+                            <h6>www.JacobsEdo.com</h6>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-60">
-                            <!-- Widget Title -->
-                            <h5 class="widget-title">Contact</h5>
-
-                            <!-- Contact Area -->
-                            <div class="footer-contact-info">
-                                <p><i class="zmdi zmdi-map"></i> 184 Main Collins Street</p>
-                                <p><i class="zmdi zmdi-phone"></i> (226) 446 9371</p>
-                                <p><i class="zmdi zmdi-email"></i> confer@gmail.com</p>
-                                <p><i class="zmdi zmdi-globe"></i> www.confer.com</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-60">
-                            <!-- Widget Title -->
-                            <h5 class="widget-title">Workshops</h5>
-
-                            <!-- Footer Nav -->
-                            <ul class="footer-nav">
-                                <li><a href="#">OSHA Compliance</a></li>
-                                <li><a href="#">Microsoft Excel Basics</a></li>
-                                <li><a href="#">Forum Speaker Series</a></li>
-                                <li><a href="#">Tedx Moscow Conference</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-60">
-                            <!-- Widget Title -->
-                            <h5 class="widget-title">Gallery</h5>
-
-                            <!-- Footer Gallery -->
-                            <div class="footer-gallery">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <a href="img/bg-img/21.jpg" class="single-gallery-item"><img src="img/bg-img/21.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/22.jpg" class="single-gallery-item"><img src="img/bg-img/22.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/23.jpg" class="single-gallery-item"><img src="img/bg-img/23.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/24.jpg" class="single-gallery-item"><img src="img/bg-img/24.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/25.jpg" class="single-gallery-item"><img src="img/bg-img/25.jpg" alt=""></a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="img/bg-img/26.jpg" class="single-gallery-item"><img src="img/bg-img/26.jpg" alt=""></a>
+                <div class="col-12 col-sm-8">
+                    <!-- Contact Form -->
+                    <div class="contact_from_area mb-100 clearfix wow fadeInUp" data-wow-delay="300ms">
+                        <div class="contact_form">
+                            <form id="contact_form" action="" method="post" id="main_contact_form">
+                                <div class="contact_input_area">
+                                    <div id="success_fail_info"></div>
+                                    <div class="row">
+                                        <!-- Form Group -->
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" autocomplete="off" class="form-control mb-30" name="name" id="name" placeholder="Your Name *">
+                                            </div>
+                                        </div>
+                                        <!-- Form Group -->
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" autocomplete="off" class="form-control mb-30" name="name" id="name2" placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                        <!-- Form Group -->
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <input type="email" autocomplete="off" class="form-control mb-30" name="email" id="email" placeholder="E-mail *">
+                                            </div>
+                                        </div>
+                                        <!-- Form Group -->
+                                        <div class="col-12 col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" autocomplete="off" class="form-control mb-30" name="subject" id="subject" placeholder="Your Number">
+                                            </div>
+                                        </div>
+                                        <!-- Form Group -->
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea name="message" class="form-control mb-30" id="message" cols="30" rows="6" placeholder="Your Message *"></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- Button -->
+                                        <div class="col-12">
+                                            <button type="submit" class="btn confer-btn">Send Message <i class="zmdi zmdi-long-arrow-right"></i></button>
+                                        </div>
                                     </div>
                                 </div>
+                            </form>
+                            <div id="gif_loader" style="position:absolute; top:0px; left:0px; z-index:9999; width:100%; height:100%; background:rgba(17,19,67,.9);">
+                              <div id="gif_wrapper" class="wrapper">
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                                <div>
+                                  <div class="bar"></div>
+                                </div>
+                            </div>
+                            </div>
+                            <div id="errorAlert" style="position:absolute; top:100px; left:50%; background:#df42b1; color:#ffffff; z-index:999999; padding:5px 10px; width:300px; text-align:center; margin-left:-150px;font-size:18px; font-weight:bold;">
+                            </div>
+                            <div id="successAlert" style="position:absolute; top:100px; left:50%; background:#151853; color:#ffffff; z-index:999999; padding:5px 10px; width:300px; text-align:center; margin-left:-150px;font-size:18px; font-weight:bold;">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    <!-- Contact Area End -->
 
-        <!-- Copywrite Area -->
-        <div class="container">
-            <div class="copywrite-content">
-                <div class="row">
-                    <!-- Copywrite Text -->
-                    <div class="col-12 col-md-6">
-                        <div class="copywrite-text">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                        </div>
-                    </div>
-                    <!-- Footer Menu -->
-                    <div class="col-12 col-md-6">
-                        <div class="footer-menu">
-                            <ul class="nav">
-                                <li><a href="#"><i class="zmdi zmdi-circle"></i> Terms of Service</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-circle"></i> Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Area End -->
 
-    <!-- **** All JS Files ***** -->
-    <!-- jQuery 2.2.4 -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Popper -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All Plugins -->
-    <script src="js/confer.bundle.js"></script>
-    <!-- Active -->
-    <script src="js/default-assets/active.js"></script>
 
-</body>
-
-</html>
+{%endblock%}

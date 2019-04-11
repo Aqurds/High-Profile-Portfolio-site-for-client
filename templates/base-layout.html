@@ -458,10 +458,14 @@
                             <ul id="nav">
                                 <li id="home"><a href="{{url_for('home')}}">Home</a></li>
                                 <li id="about"><a href="{{url_for('about')}}">About</a></li>
-                                <!-- <li><a href="{{url_for('speaking')}}">Speaking</a></li>
-                                <li><a href="{{url_for('book')}}">Book</a></li> -->
+                                <li id="speaking"><a href="{{url_for('speaking')}}">Speaking</a></li>
+                                <li id="book"><a href="{{url_for('book')}}">Book</a></li>
                                 <li id="blog"><a href="{{url_for('blog')}}">Blog</a></li>
                                 <li id="contact"><a href="{{url_for('contact')}}">Contact</a></li>
+                                {% if session %}
+                                  <li id="admin"><a href="{{url_for('admin')}}">Admin</a></li>
+                                  <li id="logout"><a href="{{url_for('logout')}}">Logout</a></li>
+                                {% endif %}
                             </ul>
 
                             <!-- Get Tickets Button -->
@@ -642,7 +646,7 @@
             $('#successAlert').hide()
 
             // Contact form AJAX call
-            $('form').on('submit', function(event) {
+            $('form#contact_form').on('submit', function(event) {
                 $('#gif_loader').show()
             		$.ajax({
             			data : {
@@ -672,6 +676,71 @@
 
             		event.preventDefault();
             	});
+
+
+
+            // Login form AJAX call
+            $('form#login_form').on('submit', function(event) {
+                $('#gif_loader').show()
+            		$.ajax({
+            			data : {
+            				name : $('#name').val(),
+            				password : $('#password').val()
+            			},
+            			type : 'POST',
+            			url : '/loginprocess'
+            		})
+            		.done(function(data) {
+                  $('#gif_wrapper').hide()
+            			if (data.error) {
+            				$('#errorAlert').text(data.error).show();
+            				$('#successAlert').hide();
+            			}
+            			else {
+            				$('#successAlert').text("You are logged in!").show();
+                    window.location.href = "{{ url_for('admin') }}";
+            			}
+                  setTimeout(function(){
+                    $('#gif_loader').hide()
+                    $('#errorAlert').hide()
+                    $('#successAlert').hide()
+                  }, 3000)
+            		});
+
+            		event.preventDefault();
+            	});
+
+              // Login form AJAX call
+              $('form#comment_form').on('submit', function(event) {
+                  $('#gif_loader').show()
+              		$.ajax({
+              			data : {
+              				name : $('#name').val(),
+              				email : $('#email').val(),
+                      comment: $('#comment').val(),
+                      title: $('#title').val()
+              			},
+              			type : 'POST',
+              			url : '/commentprocess'
+              		})
+              		.done(function(data) {
+                    $('#gif_wrapper').hide()
+              			if (data.error) {
+              				$('#errorAlert').text(data.error).show();
+              				$('#successAlert').hide();
+              			}
+              			else {
+              				$('#successAlert').text("Thanks for comment!").show();
+              			}
+                    setTimeout(function(){
+                      $('#gif_loader').hide()
+                      $('#errorAlert').hide()
+                      $('#successAlert').hide()
+                    }, 3000)
+              		});
+
+              		event.preventDefault();
+              	});
       });
     </script>
 
