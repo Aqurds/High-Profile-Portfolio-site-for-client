@@ -6,10 +6,12 @@
   </head>
   <body>
     <p>
-      {{ file_name }}
-      {{ dir }}
-      <img src="{{dir}}/decree.png" alt="test image">
+      {{ file_path }}
     </p>
+
+    <div class="">
+      <a href="{{ url_for('download_resume') }}" class="btn confer-gb-btn">Download My Resume</a>
+    </div>
 
     <div class="">
       <form class="" action="" method="post" enctype="multipart/form-data" >

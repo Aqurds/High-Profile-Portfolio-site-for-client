@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, session
+from flask import Flask, render_template, request, redirect, url_for, jsonify, session, send_file
 import os
 import smtplib
 import imghdr
@@ -236,25 +236,34 @@ def process():
 
 
 
+# Download resume route
+@app.route('/download-resume/')
+def download_resume():
+    file_name = 'Jacobs_Edo_Resume2019.pdf'
+    path = app.root_path
+    file_path = url_for('static', filename="resume/Jacobs_Edo_Resume2019.pdf")
+
+    return send_file(path+file_path, as_attachment=True)
+
+
+
 
 # Test route to test developement data
 @app.route('/test/', methods=['GET', 'POST'])
 def test():
-    # APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    # target = os.path.join(APP_ROOT, 'static/img/blogimage')
-    # image_folder = url_for('static', filename='img/blogimage')
-    file_name = ''
+    file_name = 'Jacobs_Edo_Resume2019.pdf'
     path = app.root_path
 
-    if request.method == "POST":
-        file = request.files['image']
-        file_name = file.filename
-        picture_path = os.path.join(app.root_path, 'static/img/blogimage', file_name)
-        # file.save(os.path.join(image_folder, file_name))
-        file.save(picture_path)
+    # if request.method == "POST":
+    #     file = request.files['image']
+    #     file_name = file.filename
+    #     picture_path = os.path.join(app.root_path, 'static/img/blogimage', file_name)
+    #     # file.save(os.path.join(image_folder, file_name))
+    #     file.save(picture_path)
+    file_path = url_for('static', filename="resume/Jacobs_Edo_Resume2019.pdf")
 
 
-    return render_template('test.html', dir=path, file_name=file_name)
+    return render_template('test.html', file_path=file_path)
 
 
 
