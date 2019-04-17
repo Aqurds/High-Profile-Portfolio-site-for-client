@@ -87,7 +87,7 @@ def blog():
 
     # Fetching the database for all blog post
     col = pymongo.collection.Collection(db, 'blog_post')
-    blog_posts = list(col.find())
+    blog_posts = list(col.find().sort('_id', pymongo.DESCENDING))
 
     return render_template('blog.html', blog_posts=blog_posts)
 

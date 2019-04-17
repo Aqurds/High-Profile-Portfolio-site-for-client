@@ -547,11 +547,17 @@
                             <h5 class="widget-title">Links</h5>
 
                             <!-- Footer Nav -->
-                            <ul class="footer-nav">
+                            <ul class="footer-nav" style="width:50%; float:left;">
+                                <li><a href="{{url_for('home')}}">Home</a></li>
                                 <li><a href="{{url_for('about')}}">About</a></li>
                                 <li><a href="{{url_for('speaking')}}">Speaking</a></li>
                                 <li><a href="{{url_for('book')}}">Book</a></li>
+                            </ul>
+
+                            <ul class="footer-nav">
                                 <li><a href="{{url_for('blog')}}">Blog</a></li>
+                                <li><a href="{{url_for('admin')}}">Admin</a></li>
+                                <li><a href="{{url_for('contact')}}">Contact</a></li>
                             </ul>
                         </div>
                     </div>
