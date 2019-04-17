@@ -2746,3 +2746,13 @@ input:required {
         margin-right: 3px; }
 
 /*# sourceMappingURL=style.css.map */
+
+.custom-gallery-link{
+  height:100%;
+}
+.custon-gallery-wrapper{
+  margin-bottom:10px;
+}
+.custom-gallery-image{
+  height:100%;
+}
