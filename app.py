@@ -8,14 +8,14 @@ import urllib
 
 
 # MongoDB Atlas connection
-mongo = pymongo.MongoClient('mongodb+srv://jacobs:' + urllib.parse.quote_plus('Y5oyE2EDxAQJdw53') + '@cluster0-xpfof.mongodb.net/test?retryWrites=true', maxPoolSize=50, connect=False)
+mongo = pymongo.MongoClient('mongodb+srv://<username>:' + urllib.parse.quote_plus(<password>) + '@cluster0-xpfof.mongodb.net/test?retryWrites=true', maxPoolSize=50, connect=False)
 db = pymongo.database.Database(mongo, 'edoblog')
 
 
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '0f9dc56d2288afa6e10b8d97577fe25b'
+app.config['SECRET_KEY'] = <secret_key>
 
 
 
@@ -23,15 +23,15 @@ app.config['SECRET_KEY'] = '0f9dc56d2288afa6e10b8d97577fe25b'
 def send_email(message, user_email):
     # EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
     # EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
-    EMAIL_ADDRESS =  "leaddealing@gmail.com"
-    EMAIL_PASSWORD = "Allah@DoYa@@KoRuN@@@"
+    EMAIL_ADDRESS =  "your_email"
+    EMAIL_PASSWORD = "your_email_password"
 
     contacts = ['YourAddress@gmail.com', 'test@example.com']
 
     msg = EmailMessage()
     msg['Subject'] = 'Email from JacobsEdo.com'
     msg['From'] = user_email
-    msg['To'] = 'omarf1320@gmail.com'
+    msg['To'] = 'target email'
 
     # msg.set_content(message)
 
