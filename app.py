@@ -9,7 +9,7 @@ import urllib
 
 # MongoDB Atlas connection
 mongo = pymongo.MongoClient('mongodb+srv://<username>:' + urllib.parse.quote_plus(<password>) + '@cluster0-xpfof.mongodb.net/test?retryWrites=true', maxPoolSize=50, connect=False)
-db = pymongo.database.Database(mongo, 'edoblog')
+db = pymongo.database.Database(mongo, '<db_name>')
 
 
 
